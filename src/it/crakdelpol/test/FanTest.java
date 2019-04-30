@@ -2,6 +2,7 @@ package it.crakdelpol.test;
 
 import it.crakdelpol.Button;
 import it.crakdelpol.Fan;
+import it.crakdelpol.Mediator;
 import it.crakdelpol.PowerSupplier;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,14 +10,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FanTest {
+
     private Fan fan;
     private Button button;
-    private PowerSupplier powerSupplier;
 
     @Test
     public void givenTurnedOffFan_whenPressingButtonTwice_fanShouldTurnOnAndOff() {
         assertFalse(fan.getOn());
-
         button.press();
         assertTrue(fan.getOn());
 
@@ -26,8 +26,17 @@ public class FanTest {
 
     @Before
     public void setUp() {
-        powerSupplier = new PowerSupplier();
-        fan = new Fan(button, powerSupplier);
-        button = new Button(fan);
+        this.button = new Button();
+        this.fan = new Fan();
+        PowerSupplier powerSupplier = new PowerSupplier();
+        Mediator mediator = new Mediator();
+
+
+        mediator.setButton(button);
+        mediator.setFan(fan);
+        mediator.setPowerSupplier(powerSupplier);
+
+        button.setMediator(mediator);
+        fan.setMediator(mediator);
     }
 }

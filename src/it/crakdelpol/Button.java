@@ -1,17 +1,17 @@
 package it.crakdelpol;
 
 public class Button {
-    private Fan fan;
+    private Mediator mediator;
 
-    public Button(Fan fan) {
-        this.fan = fan;
+    public void press() {
+        mediator.press();
     }
 
-    public void press(){
-        if(fan.getOn()){
-            fan.turnOff();
-        } else {
-            fan.turnOn();
-        }
+    public Mediator getMediator() {
+        return mediator;
+    }
+
+    public void setMediator(Mediator mediator) {
+        this.mediator = mediator;
     }
 }
