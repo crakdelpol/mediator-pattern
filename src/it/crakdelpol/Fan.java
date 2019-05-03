@@ -6,25 +6,16 @@ public class Fan {
     private boolean isOn = false;
 
     public Boolean getOn() {
-        return isOn;
+        return this.isOn;
     }
-
-    public void setOn(Boolean on) {
-        isOn = on;
-    }
-
 
     public void turnOff(){
-        mediator.start();
+        this.mediator.start();
         isOn = false;
     }
     public void turnOn(){
+        this.mediator.stop();
         isOn = true;
-        mediator.stop();
-    }
-
-    public Mediator getMediator() {
-        return mediator;
     }
 
     public void setMediator(Mediator mediator) {

@@ -28,6 +28,7 @@ public class Mediator {
 
     public void setButton(Button button) {
         this.button = button;
+        this.button.setMediator(this);
     }
 
     public Fan getFan() {
@@ -36,6 +37,7 @@ public class Mediator {
 
     public void setFan(Fan fan) {
         this.fan = fan;
+        this.fan.setMediator(this);
     }
 
     public PowerSupplier getPowerSupplier() {

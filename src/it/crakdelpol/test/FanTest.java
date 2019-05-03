@@ -36,7 +36,7 @@ public class FanTest {
         mediator.setFan(fan);
         mediator.setPowerSupplier(powerSupplier);
 
-        button.setMediator(mediator);
-        fan.setMediator(mediator);
     }
+
+
 }

@@ -5,10 +5,18 @@ public class PowerSupplier {
     private boolean isOn= false;
 
     public void turnOn() {
-        this.isOn = true;
+        this.setOn(true);
     }
 
-    public void turnOff() {
-       this.isOn = false;
+    /**
+	 * @return the isOn
+	 */
+	public boolean isOn() {
+		return isOn;
+	}
+
+	public void turnOff() {
+       this.setOn(false);
     }
+
 }
